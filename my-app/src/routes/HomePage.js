@@ -1,7 +1,7 @@
 import { Flex } from '@aws-amplify/ui-react'
 import React, { useEffect, useState } from 'react'
 
-function HomePage() {
+const HomePage = () => {
 	return (
 		<Flex>
 			Welcome! This is the home page

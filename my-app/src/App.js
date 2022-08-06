@@ -11,7 +11,7 @@ function App() {
 					paddingBottom: '1rem',
 				}}
 			>
-				<Link to="/">Home</Link> 
+				<Link to="/">Home</Link> | <Link to="journeys">Journeys</Link>
 			</nav>
 			<Outlet />
 		</View>

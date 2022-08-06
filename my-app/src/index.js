@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AmplifyProvider } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 import HomePage from './routes/HomePage'
+import JourneysPage from './routes/JourneysPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
 			<Routes>
 				<Route path="/" element={<App />}>
 					<Route index element={<HomePage />} />
+          <Route path="journeys" element={<JourneysPage /> } />
 				</Route>
 			</Routes>
 		</BrowserRouter>
