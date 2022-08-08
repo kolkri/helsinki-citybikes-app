@@ -61,6 +61,7 @@ app.get('/', (req, res) => {
 //ENDPOINT TO GET ALL THE BIKE TOURS
 app.get('/biketours', async (req, res) => {
 	try {
+		//here validation
 		const tours = await Biketour.find({}).limit(20).exec()
 		res.status(201).json({ response: tours, success: true })
 	} catch (error) {
@@ -68,19 +69,6 @@ app.get('/biketours', async (req, res) => {
 	}
 })
 
-
-// app.get('/thoughts', async (req, res) => {
-// 	try {
-// 		const Thoughts = await HappyThought.find({}).sort({ createdAt: 'desc' }).limit(20).exec()
-
-// 		res.status(200).json(Thoughts)
-// 	} catch (error) {
-// 		res.status(400).json({
-// 			success: false,
-// 			error: 'no such thought',
-// 		})
-// 	}
-// })
 
 //ENDPOINT TO POST A NEW TRIP
 app.post('/newbiketour', async (req, res) => {

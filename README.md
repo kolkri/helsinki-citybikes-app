@@ -14,3 +14,14 @@
 - List journeys
     - If you don't implement pagination, use some hard-coded limit for the list length because showing several million rows would make any browser choke
 - For each journey show departure and return stations, covered distance in kilometers and duration in minutes
+
+## Station list
+
+- List all the stations
+
+## Single station view
+
+- Station name
+- Station address 
+- Total number of journeys starting from the station
+- Total nukber of journeys ending at tha station
