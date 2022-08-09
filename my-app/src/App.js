@@ -10,8 +10,9 @@ const StyledLogo = styled(Image)`
 `
 const StyledDiv = styled.div`
 	width: 100%;
+	min-height: 60px;
+	box-shadow: 0 1px 3px rgba(15, 15, 15, 0.13);
 	display:flex;
-	justify-content: space-between;
 	align-items: center;
 	padding: 1rem;
 	@media (min-width:786px) and (max-width:1024px) {
@@ -24,7 +25,10 @@ const StyledDiv = styled.div`
 const StyledNav = styled.nav`
 	font-family: 'Raleway', sans-serif;
 	display: flex;
+	justify-content: center;
 	gap: 2rem;
+	flex:1;
+	
 	@media (min-width:786px) and (max-width:1024px) {
 		gap: 2.5rem;
 	  }
@@ -34,7 +38,16 @@ const StyledNav = styled.nav`
 `
 const StyledLink = styled(NavLink)`
 	  text-decoration: none;
+	  color: #000;
+	  border-bottom: 2px solid transparent;
+	  transition: all 200ms ease-in-out;
+	  &.active {
+		  border-bottom: 2px solid #d5c796;
 	  }
+	  &:hover {
+		color: #d5c796;
+	  }
+
 	  
 `
 
