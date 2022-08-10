@@ -24,4 +24,4 @@
 - Station name
 - Station address 
 - Total number of journeys starting from the station
-- Total nukber of journeys ending at tha station
+- Total number of journeys ending at tha station

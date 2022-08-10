@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 app.get('/biketours', async (req, res) => {
 	try {
 		//here validation
-		const tours = await Biketour.find({}).limit(20).exec()
+		const tours = await Biketour.find({}).limit(200).exec()
 		res.status(201).json({ response: tours, success: true })
 	} catch (error) {
 		res.status(400).json({ response: error, success: false })

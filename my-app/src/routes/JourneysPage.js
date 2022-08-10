@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { API_URL } from '../utils/urls'
-import {
-	Flex,
-	Table,
-	TableCell,
-	TableBody,
-	TableHead,
-	TableRow,
-  } from '@aws-amplify/ui-react';
+import { Flex } from '@aws-amplify/ui-react';
 import styled from 'styled-components';
 
+const pageSize = 10;
 const JourneysPage = () => {
 
 	const [journeys, setJourneys] = useState([])
@@ -38,37 +32,46 @@ const JourneysPage = () => {
 	  width: 100vw;
 	  padding: 0.5rem;
 	`
-	const StyledTable = styled(Table)`
-		width: 100%;
-		overflow:hidden;
+	const StyledTable = styled.table`
+	
 	`
+
+	const pageCount = journeys? Math.ceil(journeys.length / pageSize) : 0
+	
 	return (
 		<StyledFlex>
 			<h1>Journeys | May 2021</h1>
-			<StyledTable
-				size="small">
-				<TableHead>
-					<TableRow>
-					<TableCell width="30vw" as="th">Departure</TableCell>
-					<TableCell width="30vw"as="th">Return</TableCell>
-					<TableCell width="20vw"as="th">Range</TableCell>
-					<TableCell width="20vw"as="th">Time</TableCell>
-					</TableRow>
-				</TableHead>
-				<TableBody>
+			<StyledTable>
+				<thead>
+					<tr>
+						<th>Departure</th>
+						<th>Return</th>
+						<th>Distance</th>
+						<th>Duration</th>
+					</tr>
+				</thead>
+				<tbody>
 					{journeys.length !== 0 &&
-						journeys.map(journey => {
-							return (
-							<TableRow>
-								<TableCell>{journey.departureStationName}</TableCell>
-								<TableCell>{journey.returnStationName}</TableCell>
-								<TableCell>{Math.round(journey.coveredDistance / 1000 * 10) / 10}km</TableCell>
-								<TableCell>{Math.round(journey.duration / 60)}min</TableCell>
-							</TableRow>
-						)}
-					)}
-				</TableBody>
+					journeys.map((journey, index) =>{
+						return (
+							<tr key={index}>
+								<td>{journey.departureStationName}</td>
+								<td>{journey.returnStationName}</td>
+								<td>{Math.round(journey.coveredDistance / 1000 * 10) / 10}km</td>
+								<td>{Math.round(journey.duration / 60)}min</td>
+							</tr>
+						)
+					})
+					}
+				</tbody>
 			</StyledTable>
+			<nav className='d-flex justify-content-center'>
+				<ul className='pagination'>
+					<li className='page-link'>1</li>
+					<li className='page-link'>2</li>
+					<li className='page-link'>3</li>
+				</ul>
+			</nav>
 		</StyledFlex>
 	)
 }

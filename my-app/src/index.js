@@ -9,6 +9,7 @@ import '@aws-amplify/ui-react/styles.css'
 import HomePage from './routes/HomePage'
 import JourneysPage from './routes/JourneysPage';
 import StationsPage from './routes/StationsPage';
+import 'bootstrap/dist/css/bootstrap.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
