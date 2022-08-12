@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 app.get('/biketours', async (req, res) => {
 	try {
 		//here validation
-		const tours = await Biketour.find({}).limit(200).exec()
+		const tours = await Biketour.find({coveredDistance: { $gte: 9}, duration: { $gte: 9}}).limit(1000).exec()
 		res.status(201).json({ response: tours, success: true })
 	} catch (error) {
 		res.status(400).json({ response: error, success: false })
@@ -85,6 +85,27 @@ app.post('/newbiketour', async (req, res) => {
 			duration,
 		  }).save()
 		  res.status(201).json({ response: newBiketour, success: true })
+	} catch (error) {
+		res.status(400).json({ response: error, success: false })
+	}
+})
+
+//endpoint to get total number of journeys starting from the specific station
+app.get('/startjourneys/:id', async (req, res) => {
+	const { id } = req.params
+	try {
+		const startTours = await Biketour.count({departureStationId: id})
+		res.status(201).json({ response: startTours, success: true })
+	} catch (error) {
+		res.status(400).json({ response: error, success: false })
+	}
+})
+
+app.get('/endjourneys/:id', async (req, res) => {
+	const { id } = req.params
+	try {
+		const endTours = await Biketour.count({returnStationId: id})
+		res.status(201).json({ response: endTours, success: true })
 	} catch (error) {
 		res.status(400).json({ response: error, success: false })
 	}

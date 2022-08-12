@@ -1,6 +1,6 @@
 import { View, Image } from '@aws-amplify/ui-react'
 import React from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Cycling from './assets/Cycling.svg'
 
@@ -55,7 +55,7 @@ function App() {
 	return (
 		<View>
 			<StyledDiv>
-				<StyledLogo src={Cycling} />
+				<Link to="/"><StyledLogo src={Cycling} /></Link>
 				<StyledNav>
 					<StyledLink to="/">Home</StyledLink>
 					<StyledLink to="journeys">Journeys</StyledLink>
