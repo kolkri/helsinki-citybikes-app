@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'https://helsinki-citybikes-endpoints.herokuapp.com'
 
 export const API_URL = (slug) => `${BASE_URL}/${slug}`
 export const STARTS_URL = (id)=> `${BASE_URL}/startjourneys/${id}`
