@@ -1,8 +1,14 @@
 import { View, Image } from '@aws-amplify/ui-react'
 import React from 'react'
-import { NavLink, Outlet, Link } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Cycling from './assets/Cycling.svg'
+import Navigation from './components/Navigation'
+import MobileNavigation from './components/MobileNavigation'
+
+const StyledView = styled(View)`
+	height: 100vh;
+`
 
 const StyledLogo = styled(Image)`
 	width: 50px;
@@ -10,11 +16,11 @@ const StyledLogo = styled(Image)`
 `
 const StyledDiv = styled.div`
 	width: 100%;
-	min-height: 60px;
+	height: 80px;
 	box-shadow: 0 1px 3px rgba(15, 15, 15, 0.13);
 	display:flex;
 	align-items: center;
-	padding: 1rem;
+	padding: 10px;
 	@media (min-width:786px) and (max-width:1024px) {
 		padding: 1rem 1.5rem;
 	  }
@@ -22,48 +28,18 @@ const StyledDiv = styled.div`
 		padding: 1rem 2rem;
 	  }
 `
-const StyledNav = styled.nav`
-	font-family: 'Raleway', sans-serif;
-	display: flex;
-	justify-content: center;
-	gap: 2rem;
-	flex:1;
-	
-	@media (min-width:786px) and (max-width:1024px) {
-		gap: 2.5rem;
-	  }
-	@media (min-width: 1025px) {
-		gap: 3rem;
-	  }
-`
-const StyledLink = styled(NavLink)`
-	  text-decoration: none;
-	  color: #000;
-	  border-bottom: 2px solid transparent;
-	  transition: all 200ms ease-in-out;
-	  &.active {
-		  border-bottom: 2px solid #d5c796;
-	  }
-	  &:hover {
-		color: #d5c796;
-	  }
 
-	  
-`
 
 function App() {
 	return (
-		<View>
+		<StyledView>
 			<StyledDiv>
 				<Link to="/"><StyledLogo src={Cycling} /></Link>
-				<StyledNav>
-					<StyledLink to="/">Home</StyledLink>
-					<StyledLink to="journeys">Journeys</StyledLink>
-					<StyledLink to="stations">Stations</StyledLink>
-				</StyledNav>
+				<Navigation />
+				<MobileNavigation />
 			</StyledDiv>
 			<Outlet />
-		</View>
+		</StyledView>
 	)
 }
 

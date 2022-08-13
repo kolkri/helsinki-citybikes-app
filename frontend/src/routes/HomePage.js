@@ -4,14 +4,13 @@ import styled from 'styled-components'
 
 const StyledFlex = styled(Flex)`
 	width: 100vw;
-	height:100vh;
+	height:100%;
 	position: relative;
 `
 const StyledImage = styled(Image)`
 	object-fit: cover;
 	object-position: left;
 	width: 100%;
-	height:100%;
 	@media (min-width:786px) {
 		width: 50%;
 	}

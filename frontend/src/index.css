@@ -34,3 +34,15 @@ html {
 	padding-left: 0.1em;
 	transition: all 0.25s ease-in-out;
 }
+
+.menulogo {
+  position: absolute;
+  right: 5%;
+  cursor: pointer;
+}
+
+@media (min-width:786px) {
+  .menulogo {
+    display: none;
+  }
+}

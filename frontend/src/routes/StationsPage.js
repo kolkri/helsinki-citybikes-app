@@ -1,6 +1,5 @@
 import { Flex } from '@aws-amplify/ui-react'
-import React, { useEffect, useState } from 'react'
-import { API_URL } from '../utils/urls'
+import React from 'react'
 import stationsData from '../data/stations.json'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'

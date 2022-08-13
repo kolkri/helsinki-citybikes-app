@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { API_URL } from '../utils/urls'
-import { Flex, Pagination } from '@aws-amplify/ui-react'
+import { Flex} from '@aws-amplify/ui-react'
 import styled from 'styled-components'
 import _ from 'lodash'
 import ReactPaginate from 'react-paginate'
@@ -49,14 +49,6 @@ const JourneysPage = () => {
 
 	const pageCount = journeys? Math.ceil(journeys.length / pageSize) : 0
 	if (pageCount === 1 ) return null
-	const pages = _.range(1, pageCount+1)
-
-	const pagination = (pageNo) => {
-		setCurrentpage(pageNo)
-		const startIndex = (pageNo - 1) * pageSize
-		const paginatedJourney = _(journeys).slice(startIndex).take(pageSize).value()
-		setPaginatedJourneys(paginatedJourney)
-	}
 
 	const handlePageClick = (data) => {
 		setCurrentpage(data.selected + 1)
@@ -111,21 +103,6 @@ const JourneysPage = () => {
 				breakLinkClassName={"page-link"}
 				activeClassName={"active"}
 				/>
-			{/* <nav className='d-flex justify-content-center'>
-				<ul className='pagination'>
-					{journeys.length !== 0 && 
-					pages.map(page => {
-						return (
-						<li key={page} className={
-							page === currentpage ? "page-item active" : "page-item"
-						}>
-							<p className="page-link"
-							onClick={() => pagination(page)}>{page}</p>
-						</li>
-						)}
-					)}
-				</ul>
-			</nav> */}
 		</StyledFlex>
 	)
 }
