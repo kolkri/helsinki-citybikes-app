@@ -10,6 +10,8 @@ const StyledFlex = styled(Flex)`
 	  box-sizing: border-box;
 	  width: 100vw;
 	  padding: 0.5rem;
+	  margin-top: 80px;
+	  
 	`
 	const StyledTable = styled.table`
 	  font-size: 12px;

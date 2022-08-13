@@ -6,6 +6,7 @@ const StyledFlex = styled(Flex)`
 	width: 100vw;
 	height:100%;
 	position: relative;
+	margin-top: 80px;
 `
 const StyledImage = styled(Image)`
 	object-fit: cover;

@@ -18,9 +18,13 @@ const StyledDiv = styled.div`
 	width: 100%;
 	height: 80px;
 	box-shadow: 0 1px 3px rgba(15, 15, 15, 0.13);
+	background: rgba(255, 255, 255, 1);
 	display:flex;
 	align-items: center;
 	padding: 10px;
+	position: fixed;
+  	top: 0;
+	z-index:1;
 	@media (min-width:786px) and (max-width:1024px) {
 		padding: 1rem 1.5rem;
 	  }

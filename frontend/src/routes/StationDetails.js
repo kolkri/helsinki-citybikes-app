@@ -11,6 +11,7 @@ import stationsJsonData from '../data/stations.json'
 const StyledFlex = styled(Flex)`
     flex-direction: column;
     padding: 1rem;
+    margin-top: 80px;
 `
 const BackButton = styled.button`
     width: fit-content;

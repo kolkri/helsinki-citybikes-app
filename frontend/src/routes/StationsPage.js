@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 const StyledFlex = styled(Flex)`
     flex-direction: column;
     padding: 1rem;
+    margin-top: 80px;
 `
 
 const StyledLink = styled(Link)`

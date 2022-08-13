@@ -20,7 +20,7 @@ const StyledNav = styled.nav`
     padding: 30px 0 30px 60px;
     border-top: 2px solid #d5c796;
     box-shadow: 0 1px 3px rgba(15, 15, 15, 0.13);
-    
+    transition: all 2s ease-in-out;
 
 	@media (min-width:786px) and (max-width:1024px) {
 		gap: 2.5rem;
@@ -29,7 +29,7 @@ const StyledNav = styled.nav`
 		gap: 3rem;
 	  }
     @media (min-width:786px) {
-        display: none;
+        opacity: 0;
     }
 `
 

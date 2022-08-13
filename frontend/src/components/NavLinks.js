@@ -6,7 +6,7 @@ const StyledLink = styled(NavLink)`
 	  text-decoration: none;
 	  color: #000;
 	  border-bottom: 2px solid transparent;
-	  transition: all 200ms ease-in-out;
+	  transition: all 0.25s ease-in-out;
       width: fit-content;
       font-weight: 500;
 	  &.active {
