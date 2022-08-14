@@ -1,27 +1,59 @@
 # helsinki-citybikes-app
 
-- Project description
+This is the pre-assignment for Solita Dev Academy Finland fall 2022. The project was to create a UI and a backend service for displaying data from journeys made with city bikes in the Helsinki Capital area (check details: https://github.com/solita/dev-academy-2022-fall-exercise).
 
 ## Data import
 
-- Import data from the CSV files to a database or in-memory storage
-- Validate data before importing
-- Don't import journeys that lasted for less than ten seconds
-- Don't import journeys that covered distances shorter than 10 meters
+The following datasets were provided in the assignment:
+ - 3 datasets of journey data (May, June and July 2021) by City Bike Finland
+ - 1 dataset that has information about Helsinki Region Transport’s (HSL) city bicycle stations
+
+In my project I only used the dataset of city bike journeys done during May 2021 and then the dataset with information about the stations. With more time I would have included also the datasets of June and July. 
+
+## Used technologies
+
+- Backend was built with Node.js and  MongoDB
+- Frontend was built with React and Styled components
 
 ## Journey list view
 
-- List journeys
-    - If you don't implement pagination, use some hard-coded limit for the list length because showing several million rows would make any browser choke
-- For each journey show departure and return stations, covered distance in kilometers and duration in minutes
+I displayed the journeys on the "Journeys" page. I limited the amount of shown journeys for 1000 this time, to avoid browser choke. I also used pagination shown only 200 journeys per page. The journey table shows departure and return stations, covered distance in kilometers and duration in minutes. 
 
-## Station list
+## Station list and single station view
 
-- List all the stations
+I displayed the stations on the "Station" page. Every station name and id is a link to the single station view, where user can see the name, address and started and ended journeys of that specific station (during May 2021).
 
-## Single station view
+## Improvements with more time
 
-- Station name
-- Station address 
-- Total number of journeys starting from the station
-- Total number of journeys ending at tha station
+- I would include also the data of June and July 2021 to the database
+
+- I noticed very end that there was a lot of duplicates on the journeys datasets, so I would make sure that I exludes the duplicate journeys from the datasets
+
+- I build endpoint to store a new journey (see on the backend file). I would build frontend, were user can add a new journey and save it to the database. With same principle I could also build a possibility to add a new station. 
+
+- Build filtering and searching possibilities for journeys and stations
+
+- Improve the UI with animations and more styling
+
+## How to run the project locally
+
+1. Clone the project to your local environment:
+
+    git clone https://github.com/kolkri/helsinki-citybikes-app.git
+
+2. Move to the frontend folder:
+    
+    cd frontend
+ 
+3. Install all the dependencies:
+
+    npm install
+
+4. Run the project on your local server:
+
+    npm start
+
+## View it live
+
+- Backend API: https://helsinki-citybikes-endpoints.herokuapp.com/
+- Frontend: https://helsinki-citybikes.netlify.app/
