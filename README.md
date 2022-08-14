@@ -27,7 +27,7 @@ I displayed the stations on the "Station" page. Every station name and id is a l
 
 - I would include also the data of June and July 2021 to the database
 
-- I noticed very end that there was a lot of duplicates on the journeys datasets, so I would make sure that I exludes the duplicate journeys from the datasets
+- I noticed at the very end that there was a lot of duplication on the journeys datasets and I forgot to validate the data for not showing the duplications, so I would make sure that I exlude the duplicate journeys from the datasets. 
 
 - I build endpoint to store a new journey (see on the backend file). I would build frontend, were user can add a new journey and save it to the database. With same principle I could also build a possibility to add a new station. 
 
