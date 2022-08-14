@@ -5,6 +5,7 @@ import { END_URL } from '../utils/urls'
 import styled from 'styled-components'
 import { useParams, useNavigate } from 'react-router-dom'
 import stationsJsonData from '../data/stations.json'
+import LoadingItem from '../components/LoadingItem'
 
 
 
@@ -15,6 +16,17 @@ const StyledFlex = styled(Flex)`
 `
 const BackButton = styled.button`
     width: fit-content;
+    border: 2px solid #d5c796;
+    border-radius: 20px;
+    padding: 5px 10px;
+    &:hover{
+        border-radius: none;
+        background: #d5c796;
+    }
+
+`
+const BoldText = styled.span`
+    font-weight: 700;
 `
 const StationDetails = () => {
 
@@ -36,6 +48,7 @@ const StationDetails = () => {
         .then(res => res.json())
         .then(data => {
             setStarts(data.response)
+           
         })
     }
 
@@ -53,18 +66,19 @@ const StationDetails = () => {
 
 
 	return (
-		<StyledFlex>
-            <BackButton onClick={() => navigate(-1)}> &#8592; Back</BackButton>
-			<h3>Station details</h3>
-            {starts !== 0 && ends !== 0 && 
-            <div>
-                <p>Name: {findStation.Name}</p>
-                <p>Address: {findStation.Osoite}</p>
-                <p>Starts: {starts}</p>
-                <p>Ends: {ends}</p>
-            </div>
-            }
-		</StyledFlex>
+       
+            <StyledFlex>
+                <BackButton onClick={() => navigate(-1)}> &#8592; Back</BackButton>
+                <h3>Station details</h3>
+                {starts !== 0 && ends !== 0 && 
+                <div>
+                    <p><BoldText>Name:</BoldText> {findStation.Name}</p>
+                    <p><BoldText>Address:</BoldText> {findStation.Osoite}</p>
+                    <p><BoldText>Starts:</BoldText> {starts}</p>
+                    <p><BoldText>Ends:</BoldText> {ends}</p>
+                </div>
+                }
+            </StyledFlex>
 	)
 }
 

@@ -4,6 +4,7 @@ import { Flex} from '@aws-amplify/ui-react'
 import styled from 'styled-components'
 import _ from 'lodash'
 import ReactPaginate from 'react-paginate'
+import LoadingItem from '../components/LoadingItem'
 
 const StyledFlex = styled(Flex)`
 	  flex-direction: column;
@@ -60,52 +61,57 @@ const JourneysPage = () => {
 	}
 	
 	return (
-		<StyledFlex>
-			<h3>Journeys | May 2021</h3>
-			<StyledTable>
-				<thead>
-					<tr>
-						<th>Departure</th>
-						<th>Return</th>
-						<th>Distance</th>
-						<th>Duration</th>
-					</tr>
-				</thead>
-				<tbody>
-					{journeys.length !== 0 &&
-					paginatedJourneys.map((journey, index) =>{
-						return (
-							<tr key={index}>
-								<td>{journey.departureStationName}</td>
-								<td>{journey.returnStationName}</td>
-								<td>{Math.round(journey.coveredDistance / 1000 * 10) / 10}km</td>
-								<td>{Math.round(journey.duration / 60)}min</td>
-							</tr>
-						)
-					})
-					}
-				</tbody>
-			</StyledTable>
-			<ReactPaginate  
-				previousLabel={"previous"}
-				nextLabel={"next"}
-				breakLabel={"..."}
-				pageCount={pageCount}
-				marginPagesDisplayed={2}
-				pageRangeDisplayed={3}
-				onPageChange={handlePageClick}
-				containerClassName={"pagination justify-content-center"}
-				pageClassName={"page-item"}
-				pageLinkClassName={"page-link"}
-				previousClassName={"page-item"}
-				previousLinkClassName={"page-link"}
-				nextClassName={"page-item"}
-				nextLinkClassName={"page-link"}
-				breakClassName={"page-item"}
-				breakLinkClassName={"page-link"}
-				activeClassName={"active"}
-				/>
-		</StyledFlex>
+		<>
+		{loading && <LoadingItem />}
+		{!loading && 
+		
+			<StyledFlex>
+				<h3>Journeys | May 2021</h3>
+				<StyledTable>
+					<thead>
+						<tr>
+							<th>Departure</th>
+							<th>Return</th>
+							<th>Distance</th>
+							<th>Duration</th>
+						</tr>
+					</thead>
+					<tbody>
+						{journeys.length !== 0 &&
+						paginatedJourneys.map((journey, index) =>{
+							return (
+								<tr key={index}>
+									<td>{journey.departureStationName}</td>
+									<td>{journey.returnStationName}</td>
+									<td>{Math.round(journey.coveredDistance / 1000 * 10) / 10}km</td>
+									<td>{Math.round(journey.duration / 60)}min</td>
+								</tr>
+							)
+						})
+						}
+					</tbody>
+				</StyledTable>
+				<ReactPaginate  
+					previousLabel={"previous"}
+					nextLabel={"next"}
+					breakLabel={"..."}
+					pageCount={pageCount}
+					marginPagesDisplayed={2}
+					pageRangeDisplayed={3}
+					onPageChange={handlePageClick}
+					containerClassName={"pagination justify-content-center"}
+					pageClassName={"page-item"}
+					pageLinkClassName={"page-link"}
+					previousClassName={"page-item"}
+					previousLinkClassName={"page-link"}
+					nextClassName={"page-item"}
+					nextLinkClassName={"page-link"}
+					breakClassName={"page-item"}
+					breakLinkClassName={"page-link"}
+					activeClassName={"active"}
+					/>
+			</StyledFlex>}
+		</>
 	)
 }
 

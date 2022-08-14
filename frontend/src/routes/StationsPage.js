@@ -12,8 +12,9 @@ const StyledFlex = styled(Flex)`
 `
 
 const StyledLink = styled(Link)`
-    text-decoration: none;
+    
     color: #000;
+    padding-right: 1rem;
     transition: all 200ms ease-in-out;
     &:hover {
         font-weight: 900;
