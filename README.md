@@ -21,7 +21,7 @@ I displayed the journeys on the "Journeys" page. I limited the amount of shown j
 
 ## Station list and single station view
 
-I displayed the stations on the "Station" page. Every station name and id is a link to the single station view, where user can see the name, address and started and ended journeys of that specific station (during May 2021). The single station view information was got from 2 different datasets. I used the id number to fetch the right data from both datasets. 
+I displayed the stations on the "Station" page. Every station name and id is a link to the single station view, where user can see the name, address and started and ended journeys of that specific station (during May 2021). The single station view information was got from 2 different datasets. I used the id number to fetch the right data from both datasets. I also added posibility to sort the stations based on name and id.
 
 ## Improvements with more time
 
