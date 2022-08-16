@@ -35,6 +35,8 @@ I displayed the stations on the "Station" page. Every station name and id is a l
 
 - Improve the UI with animations and more styling
 
+- Add map component to show the location of each station on the map
+
 ## How to run the project locally
 
 1. Clone the project to your local environment:
