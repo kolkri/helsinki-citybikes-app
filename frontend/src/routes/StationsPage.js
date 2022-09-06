@@ -24,10 +24,31 @@ const StyledLink = styled(Link)`
 const StyledTable = styled.table`
     width: fit-content;
 `
+const StyledInputFlex = styled(Flex)`
+    flex-direction: column;
+    @media (min-width:786px) {
+		flex-direction: row;
+	}
+`
+const StyledSelect = styled.select`
+    height: 40px;
+    width: 240px;
+    font-size: 20px;
+    padding-left: 10px;
+`
+
+const StyledInput = styled.input`
+    height: 40px;
+    width: 240px;
+    font-size: 20px;
+    padding-left: 10px;
+`
+
 const StationsPage = () => {
 
     const [sorting, setSorting] = useState()
     const [data, setData] = useState(stationsData)
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
 		if (sorting === 'byName') {
@@ -49,9 +70,9 @@ const StationsPage = () => {
 	return (
 		<StyledFlex>
 			<h3>City bikes stations</h3>
-            <Flex>
+            <StyledInputFlex>
                 <label htmlFor='sorting'>
-					<select
+					<StyledSelect
 						id='sorting'
 						value={sorting}
 						onChange={(e) => setSorting(e.target.value)}
@@ -61,9 +82,13 @@ const StationsPage = () => {
 						</option>
 						<option value='byName'>Name</option>
 						<option value='byId'>Id</option>
-					</select>
+					</StyledSelect>
 				</label>
-            </Flex>
+                <StyledInput 
+                    type="text" 
+                    placeholder="Search by name"
+                    onChange={event => {setSearch(event.target.value)}}></StyledInput>
+            </StyledInputFlex>
             <StyledTable>
                 <thead>
                     <tr>
@@ -72,7 +97,13 @@ const StationsPage = () => {
                     </tr>
                 </thead>
                 <tbody>
-                {data.map(station => {
+                {data.filter(item => {
+                    if(search == ''){
+                        return item
+                    } else if (item.Name.toLowerCase().includes(search.toLowerCase())) {
+                        return item
+                    }
+                }).map(station => {
                     return (
                         <tr key={station.ID}>
                             <td><StyledLink to={`/station/${station.ID}`}>{station.Name}</StyledLink></td>
